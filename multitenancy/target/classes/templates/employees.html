@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Employee List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h1 class="page-header" th:text="${tenantid}">Tenant</h1>
+		</div>
+		
+		<div>
+		<h2>Add a new employee</h2>
+			<form role="form" th:action="@{/{tenantid}/add(tenantid=${tenantid})}" th:object="${employee}" method="post">
+				<div class="form-group">
+					<label for="first_name">First Name:</label> 
+					<input type="text" class="form-control" id="first_name"	th:field="*{firstName}" />
+				</div>
+				<div class="form-group">
+					<label for="last_name">Last Name:</label> 
+					<input type="text" class="form-control" id="last_name" th:field="*{lastName}" />
+				</div>
+				<div class="form-group">
+					<label for="department">Department:</label> 
+					<input type="text" class="form-control" id="department" th:field="*{department}" />
+				</div>
+				<div class="form-group">
+					<label for="office">Office:</label> 
+					<input type="text" class="form-control" id="office" th:field="*{office}" />
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+
+		<div>
+			<h2>Employees List</h2>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Department</th>
+						<th>Office</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="employee : ${employees}">
+						<td th:text="${employee.firstName}"></td>
+						<td th:text="${employee.lastName}"></td>
+						<td th:text="${employee.department}"></td>
+						<td th:text="${employee.office}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome to our multi-tenant employees app</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Welcome to our multi-tenant app</h1>
+			<p>Use the links below to navigate to the different tenants</p>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>
+					<a th:href="@{/tenant_1}">Tenant 1</a>
+				</h3>
+				<p>...</p>
+			</div>
+			<div class="col-sm-4">
+				<h3>
+					<a th:href="@{/tenant_2}">Tenant 2</a>
+				</h3>
+				<p>...</p>
+			</div>
+			<div class="col-sm-4">
+				<h3>
+					<a th:href="@{/tenant_3}">Tenant 3</a>
+				</h3>
+				<p>...</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
